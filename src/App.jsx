@@ -73,16 +73,15 @@ function App() {
         <div className="container px-4 px-lg-5">
             <form className="d-flex">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-              <li className="nav-item"><a className="btn btn-outline-dark" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i className="bi-cart-fill me-1"></i> Cart <span className="badge bg-dark text-white ms-1 rounded-pill">{cart.length}</span></a>
+              <li className="nav-item"><a className="btn btn-outline-dark" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i className="bi-cart-fill me-1"></i> Cart <span className="badge bg-dark text-white ms-1 rounded-pill">{cart.length}</span></a>
               <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
             {cart.length === 0 ? (
-              <li><a className="dropdown-item" href="#">Your Cart is Empty <i className="bi-cart-fill me-1"></i></a></li>
+              <li><a className="dropdown-item">Your Cart is Empty <i className="bi-cart-fill me-1"></i></a></li>
             ) : (<>
               {cart.map((temp, index) => (
-                <li key={index}><a className="dropdown-item d-flex justify-content-between" href="#">{temp.Name} - ${temp.Price - temp.Price/100 * 10}&#x2003;&#x2003;&#x2003;<button className="btn btn-outline-dark mt-auto" onClick={() => removeFromCart(temp)}><i class="bi bi-trash-fill"></i></button></a></li>
+                <li key={index}><a className="dropdown-item d-flex justify-content-between">{temp.Name} - ${temp.Price - temp.Price/100 * 10}&#x2003;&#x2003;&#x2003;<button className="btn btn-outline-dark mt-auto" onClick={() => removeFromCart(temp)}><i class="bi bi-trash-fill"></i></button></a></li>
               ))}<li><hr className="dropdown-divider" /></li>
-              <li><a className="dropdown-item" href="#"><b>Total Amount: ${total - total/100 * 10}</b></a></li></>
-              
+              <li><a className="dropdown-item"><b>Total Amount: ${total - total/100 * 10}</b></a></li></>
             )}
           </ul></li></ul>
 
