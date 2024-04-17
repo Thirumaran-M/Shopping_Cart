@@ -15,6 +15,7 @@ import Poco from './assets/Poco.jpg';
 import Redmi from './assets/Redmi.jpg';
 import Vivo from './assets/Vivo.jpg';
 import M15 from './assets/M15.jpg';
+import Cart from './Cart';
 
 function App() {
   const [total, setTotal] = useState(0);
@@ -79,7 +80,7 @@ function App() {
               <li><a className="dropdown-item">Your Cart is Empty <i className="bi-cart-fill me-1"></i></a></li>
             ) : (<>
               {cart.map((temp, index) => (
-                <li key={index}><a className="dropdown-item d-flex justify-content-between">{temp.Name} - ${temp.Price - temp.Price/100 * 10}&#x2003;&#x2003;&#x2003;<button className="btn btn-outline-dark mt-auto" onClick={() => removeFromCart(temp)}><i class="bi bi-trash-fill"></i></button></a></li>
+                <Cart temp={temp} index={index} removeFromCart={removeFromCart} cart={cart} />
               ))}<li><hr className="dropdown-divider" /></li>
               <li><a className="dropdown-item"><b>Total Amount: ${total - total/100 * 10}</b></a></li></>
             )}
